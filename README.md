@@ -1,7 +1,3 @@
-Sure, here's a sample GitHub profile README for a Java developer:
-
----
-
 # Hello, I'm [Ademola Aduragbemi] 👋
 
 I'm a passionate Java developer with a keen interest in building robust and scalable software solutions. With [X] years of experience in software development, I have worked on various projects ranging from enterprise applications to web services and APIs.
