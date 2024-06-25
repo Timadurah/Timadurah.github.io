@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cola Coin - Explore the power of new cryto</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.svg" type="image/svg+xml" />
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@600;900&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body id="top">
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+      <div class="overlay" data-overlay></div>
+
+      <a href="#" class="logo">
+        <img src="./assets/images/logo.svg" width="68" height="48" alt="NFTC Logo" />
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <div class="navbar-top">
+          <p class="navbar-title">Menu</p>
+
+          <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+            <ion-icon name="close-circle-outline"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+          <li>
+            <a href="#home" class="navbar-link" data-navlink>Home</a>
+          </li>
+
+          <li>
+            <a href="https://tim-adurahs-organization.gitbook.io/colacoin/specials/whitepaper" class="navbar-link"
+              data-navlink>White paper</a>
+          </li>
+
+          <li>
+            <a href="#hero" class="navbar-link" data-navlink>Calculator</a>
+          </li>
+
+          <li>
+            <a href="https://tim-adurahs-organization.gitbook.io/colacoin/specials/contract" class="navbar-link"
+              data-navlink>Contract</a>
+          </li>
+          <li>
+            <a href="https://tim-adurahs-organization.gitbook.io/colacoin/specials/faqs" class="navbar-link"
+              data-navlink>faQ</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="menu-open-btn" aria-label="Open Menu" data-nav-open-btn>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      <a href="#" class="btn" aria-labelledby="wallet">
+        <ion-icon name="wallet-outline"></ion-icon>
+
+        <span id="wallet">Wallet Connect</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero" id="home">
+        <div class="container" style="position: relative;">
+          <p class="section-subtitle">Join the Presale</p>
+
+          <h2 class="h1 hero-title">Smart move with high Probabilty</h2>
+
+          <p class="hero-text">
+            Join one of the best token,And change your entire story
+          </p>
+
+          <div class="btn-group">
+            <button class="btn non">
+              <ion-icon name="rocket-outline" aria-hidden="true"></ion-icon>
+
+              <span>Fly With rocket</span>
+            </button>
+
+            <button class="btn">
+              <ion-icon name="create-outline" aria-hidden="true"></ion-icon>
+
+              <span>White paper</span>
+            </button>
+          </div>
+
+          <div class="scale" id="removeElementOnLoad">
+            <!-- coins -->
+            <div class="coins">
+              <div class="coin" data-val="BTC" data-calculatorBtn>
+                <img src="./assets/images/btcc.svg" alt="BTC" height="20px" width="18px">
+
+              </div>
+
+              <div class="coin" data-val="Ethereum" data-calculatorBtn>
+                <img src="./assets/images/coin-2.svg" alt="Ethereum" height="20px" width="18px">
+
+              </div>
+              <div class="coin" data-val="BNB" data-calculatorBtn>
+                <img src="./assets/images/coin-4.svg" alt="BNB" height="20px" width="18px">
+
+              </div>
+            </div>
+            <!--  -->
+            <div class="container" style="padding-block: 24px">
+              <h3 style="
+                    font-weight: bolder;
+                    font-family: monospace;
+                    color: white;
+                  ">
+                One ColaCoin = $0.03245
+              </h3>
+            </div>
+
+            <!--  -->
+
+            <div class="container" style="padding-block: 24px">
+              <div class="footer-list">
+                <p class="scale-title" id="CalculatortitleCoin">BTC</p>
+
+                <div class="newsletter-form">
+                  <input type="text" id="coinInput1" name="coinInput1" step="any" required placeholder="BTC " class="newsletter-input" />
+
+                  <button class="newsletter-btn" aria-label="Submit">
+                    <img src="./assets/images/btc.svg" alt="activecoin" height="30px" width="30px" data-calculatorImgDiv>
+                  </button>
+                </div>
+              </div>
+
+              <!--  -->
+              <br />
+              <div class="footer-list">
+                <p class="scale-title">CLCoin</p>
+
+                <div class="newsletter-form">
+                  <input type="text" id="coinInput2" name="exchangeRate" value="1" step="any" required placeholder="Coin Cola" class="newsletter-input" />
+
+                  <button class="newsletter-btn" aria-label="Submit">
+                    <img src="./assets/images/logo-icon.svg" alt="coincola" height="30px" width="30px">
+                  </button>
+                </div>
+              </div>
+              <button type="submit" class="connect-scale btn-connect" aria-label="Submit">
+                <ion-icon name="wallet-outline"></ion-icon>
+
+                <span id="wallet">Connect Wallet</span>
+              </button>
+            </div>
+            <!--  -->
+          </div>
+        </div>
+<!-- not normal scale -->
+        <div class="scale3 vib2324">
+          <!-- coins -->
+          <div class="coins">
+            <div class="coin" data-val="BTC" data-calculatorBtn>
+              <img src="./assets/images/btcc.svg" alt="BTC" height="20px" width="18px">
+
+            </div>
+
+            <div class="coin" data-val="Ethereum" data-calculatorBtn>
+              <img src="./assets/images/coin-2.svg" alt="Ethereum" height="20px" width="18px">
+
+            </div>
+            <div class="coin" data-val="BNB" data-calculatorBtn>
+              <img src="./assets/images/coin-4.svg" alt="BNB" height="20px" width="18px">
+
+            </div>
+          </div>
+          <!--  -->
+          <div class="container" style="padding-block: 24px">
+            <h3 style="
+                  font-weight: bolder;
+                  font-family: monospace;
+                  color: white;
+                ">
+              One ColaCoin = $0.03245
+            </h3>
+          </div>
+
+          <!--  -->
+
+          <div class="container" style="padding-block: 24px">
+            <div class="footer-list">
+              <p class="scale-title" id="CalculatortitleCoin">BTC</p>
+
+              <div class="newsletter-form">
+                <input type="text" id="coinInput1" name="coinInput1" step="any" required placeholder="BTC " class="newsletter-input" />
+
+                <button class="newsletter-btn" aria-label="Submit">
+                  <img src="./assets/images/btc.svg" alt="activecoin" height="30px" width="30px" data-calculatorImgDiv>
+                </button>
+              </div>
+            </div>
+
+            <!--  -->
+            <br />
+            <div class="footer-list">
+              <p class="scale-title">CLCoin</p>
+
+              <div class="newsletter-form">
+                <input type="text" id="coinInput2" name="exchangeRate" value="1" step="any" required placeholder="Coin Cola" class="newsletter-input" />
+
+                <button class="newsletter-btn" aria-label="Submit">
+                  <img src="./assets/images/logo-icon.svg" alt="coincola" height="30px" width="30px">
+                </button>
+              </div>
+            </div>
+            <button type="submit" class="connect-scale btn-connect" aria-label="Submit">
+              <ion-icon name="wallet-outline"></ion-icon>
+
+              <span id="wallet">Connect Wallet</span>
+            </button>
+          </div>
+          <!--  -->
+        </div>
+        <svg class="hero-bg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 465" version="1.1">
+          <defs>
+            <linearGradient x1="49.7965246%" y1="28.2355058%" x2="49.7778147%" y2="98.4657689%" id="linearGradient-1">
+              <stop stop-color="#8b044c" offset="0%"></stop>
+              <stop stop-color="#7c3b10" offset="100%"></stop>
+            </linearGradient>
+          </defs>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <polygon points="" fill="url(#linearGradient-1)">
+              <animate id="graph-animation" xmlns="http://www.w3.org/2000/svg" dur="2s" repeatCount=""
+                attributeName="points"
+                values="0,464 0,464 111.6,464 282.5,464 457.4,464 613.4,464 762.3,464 912.3,464 1068.2,464 1191.2,464 1328.1,464 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,323.3 282.5,373 457.4,423.8 613.4,464 762.3,464 912.3,464 1068.2,464 1191.2,464 1328.1,464 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,336.6 457.4,363.5 613.4,414.4 762.3,464 912.3,464 1068.2,464 1191.2,464 1328.1,464 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,323.3 613.4,340 762.3,425.6 912.3,464 1068.2,464 1191.2,464 1328.1,464 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,290.4 762.3,368 912.3,446.4 1068.2,464 1191.2,464 1328.1,464 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,216 762.3,329.6 912.3,420 1068.2,427.6 1191.2,464 1328.1,464 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,216 762.3,272 912.3,402.4 1068.2,373 1191.2,412 1328.1,464 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,216 762.3,272 912.3,376 1068.2,336.6 1191.2,334 1328.1,404 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,216 762.3,272 912.3,376 1068.2,282 1191.2,282 1328.1,314 1440.1,372.8 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,216 762.3,272 912.3,376 1068.2,282 1191.2,204 1328.1,254 1440.1,236 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,216 762.3,272 912.3,376 1068.2,282 1191.2,204 1328.1,164 1440.1,144.79999999999998 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,216 762.3,272 912.3,376 1068.2,282 1191.2,204 1328.1,164 1440.1,8 1440.1,464 0,464;"
+                fill="freeze"></animate>
+            </polygon>
+          </g>
+        </svg>
+      </section>
+
+      <!-- 
+        - #Sale Time out
+      -->
+
+      <section class="section explore" id="Sale-Time-out">
+        <div class="container Sale-Time-out" style="display: flex">
+          <!--  -->
+          <div class="scale2">
+            <!-- sale end in -->
+            <p style="text-align: center; padding: 20px;">Sales End In</p>
+            <!-- time -->
+            <div class="coins" style="padding-inline: 10px;">
+              <div class="timeCounter">
+                7 D
+              </div>
+              <div class="timeCounter">
+                08 H
+              </div>
+
+              <div class="timeCounter">
+                42 MIN
+              </div>
+              <div class="timeCounter">
+                47 SEC
+              </div>
+            </div>
+            <br>
+            <!-- contribution -->
+            <div style="padding-inline: 10px; border-left: 4px solid var(--indigo); margin-left:5px; padding: 10px;">
+              <div style="display: flex; justify-content: space-between; color: rgb(125, 125, 125); ">Min contribution:
+                0.01 BTC</div>
+              <div style="display: flex; justify-content: space-between; color:  rgb(125, 125, 125); ">
+                Max contribution: 200 BTC</div>
+              <div style="display: flex; justify-content: space-between;color:  rgb(125, 125, 125); ">
+                Exchange Rate: 1 BTC = 479 Cola Coin</div>
+            </div>
+
+            <!-- stage  -->
+            <div style="padding-inline: 10px;  margin-left:5px; background-color: rgb(53, 49, 49); padding: 20px;">
+              <div style="display: flex; justify-content: space-between; color: rgb(125, 125, 125);"> CURRENT STAGE
+                PRICE:</div>
+              <div style="display: flex; justify-content: space-between; color: rgb(125, 125, 125);">1 BTC = 479 Cola
+                Coin
+                ~ 0.32 $</div>
+              <div style="display: flex; justify-content: space-between; color: rgb(125, 125, 125);">LAUNCH PRICE:</div>
+              <div style="display: flex; justify-content: space-between; color: rgb(125, 125, 125);">1 BTC = 239 Cola
+                Coin
+                ~ 0.65 $</div>
+            </div>
+
+
+            <!-- more deatile -->
+            <div style="padding-inline: 10px; border-left: 4px solid var(--indigo); margin-left:5px; padding: 10px;">
+              <div style="display: flex; justify-content: space-between; color: rgb(125, 125, 125); ">MODE: presale
+              </div>
+              <div style="display: flex; justify-content: space-between; color: rgb(125, 125, 125); ">
+
+                NAME: Cola Coin</div>
+              <div style="display: flex; justify-content: space-between; color: rgb(125, 125, 125); ">
+                SYMBOL: CCN</div>
+              <div style="display: flex; justify-content: space-between; color: rgb(125, 125, 125); ">
+                TOTAL SUPPLY: 21.332.016</div>
+              <div
+                style="justify-content: space-between; color: rgb(125, 125, 125); background-color: rgb(31, 31, 31); padding: 10px;" class="non">
+                CONTRACT ADDRESS: UTEWOUCU3478V48702398Y@#UIY8yfwuel387$$u</div>
+            </div>
+            <br>
+            <!--  -->
+          </div>
+          <!--  -->
+          <div style="
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+              ">
+            <div class="container t234">
+
+              <p class="section-subtitle">Cola Coin</p>
+
+
+              <p class="hero-text"> Welcome
+                to the Cola Coin Presale! Each presale stage lasts for two
+                weeks, offering you ample time to participate and secure your
+                Cola Coins. During this exclusive period, Cola Coins can only
+                be purchased using Solana, ensuring seamless transactions and
+                leveraging Solana’s high-speed and low-cost network. Take
+                advantage of the best prices available during the presale.
+                Don’t miss this opportunity to acquire Cola Coins!
+              <p>
+                CURRENT
+                STAGE PRICE:</p>
+              <p> 1 SOL = 479 Cola Coin ~ 0.32</p>
+              <p> $ LAUNCH PRICE: 1 SOL
+                = 239 Cola Coin ~ 0.65</p> $ Join one of the best token, Let's
+              change entire story
+              </p>
+
+              <div class="btn-group">
+                <div class="footer-list">
+                  <p class="footer-list-title">Subscribe to Get more Update</p>
+
+                  <form action="" class="newsletter-form">
+                    <input type="email" name="email" placeholder="info@yourmail.com" required=""
+                      class="newsletter-input" />
+
+                    <button type="submit" class="newsletter-btn" aria-label="Submit">
+                      <ion-icon name="paper-plane-outline" role="img" class="md hydrated"
+                        aria-label="paper plane outline"></ion-icon>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+        - #The Team
+      -->
+
+      <section class="section top-seller" id="Partners">
+        <div class="container">
+          <p class="section-subtitle">PARTNERSHIPS </p>
+
+          <h2 class="h2 section-title">Those we make collaboration with</h2>
+
+          <ul class="grid-list">
+            <li>
+              <div class="card top-seller-card">
+                <figure class="card-avatar">
+                  <a href="#">
+                    <img src="./assets/images/solana-1.png" width="64" height="64" loading="lazy" alt="Solana" />
+                  </a>
+                </figure>
+
+                <div>
+                  <h3 class="card-title">
+                    <a href="#">#Solana</a>
+                  </h3>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="card top-seller-card">
+                <figure class="card-avatar">
+                  <a href="#">
+                    <img src="./assets/images/jupiterlogo.png" width="64" height="64" loading="lazy"
+                      alt="jupiterlogo" />
+                  </a>
+                </figure>
+
+                <div>
+                  <h3 class="card-title">
+                    <a href="#">#Jupiter</a>
+                  </h3>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="card top-seller-card">
+                <figure class="card-avatar">
+                  <a href="#">
+                    <img src="./assets/images/dexview_logo-1536x362.png" width="64" height="64" loading="lazy"
+                      alt="dexview_logo" />
+                  </a>
+                </figure>
+
+                <div>
+                  <h3 class="card-title">
+                    <a href="#">#Dex View</a>
+                  </h3>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="card top-seller-card">
+                <figure class="card-avatar">
+                  <a href="#">
+                    <img
+                      src="./assets/images/coingecko-logo-white-ea42ded10e4d106e14227d48ea6140dc32214230aa82ef63d0499f9c1e109656.webp"
+                      width="64" height="64" loading="lazy" alt="Coingeco" />
+                  </a>
+                </figure>
+
+                <div>
+                  <h3 class="card-title">
+                    <a href="#">#Coin Gecko</a>
+                  </h3>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="card top-seller-card">
+                <figure class="card-avatar">
+                  <a href="#">
+                    <img src="./assets/images/CoinMarketCap.png" width="64" height="64" loading="lazy"
+                      alt="CoinMarketCap" />
+                  </a>
+                </figure>
+
+                <div>
+                  <h3 class="card-title">
+                    <a href="#">#CoinMarketCap</a>
+                  </h3>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="card top-seller-card">
+                <figure class="card-avatar">
+                  <a href="#">
+                    <img src="./assets/images/cc-logo-3.png" width="64" height="64" loading="lazy" alt="cc Logo" />
+                  </a>
+                </figure>
+
+                <div>
+                  <h3 class="card-title">
+                    <a href="#">#Coin Codex</a>
+                  </h3>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 
+        - #INSTRUCTION
+      -->
+
+      <section class="section instruction" id="instruction">
+        <div class="container">
+          <p class="section-subtitle">How It Works</p>
+
+          <h2 class="h2 section-title">Simplified 4step guide</h2>
+
+          <ul class="grid-list">
+            <li class="instruction-item">
+              <div class="instruction-icon">
+                <ion-icon name="wallet-outline"></ion-icon>
+              </div>
+
+              <h3 class="instruction-title">Wallet Setup</h3>
+
+              <p class="instruction-text">
+                Complete KYC verification, and set up an ERC-20 compatible wallet
+                like MetaMask or Trust Wallet for storing your tokens securely.
+              </p>
+            </li>
+
+            <li class="instruction-item">
+              <div class="instruction-icon">
+                <ion-icon name="grid-outline"></ion-icon>
+              </div>
+
+              <h3 class="instruction-title">Presale</h3>
+
+              <p class="instruction-text">
+                Select the amount of COLA tokens, choose a payment cryptocurrency, transfer the funds, and
+                receive your reserved tokens at a discounted presale price.
+              </p>
+            </li>
+
+            <li class="instruction-item">
+              <div class="instruction-icon">
+                <ion-icon name="file-tray-outline"></ion-icon>
+              </div>
+
+              <h3 class="instruction-title">Token Distribution</h3>
+
+              <p class="instruction-text">
+                Tokens are distributed to your wallet. Stake your COLA tokens to earn rewards by locking them in a
+                staking contract, gaining additional tokens or incentives.
+              </p>
+            </li>
+
+            <li class="instruction-item">
+              <div class="instruction-icon">
+                <ion-icon name="bag-handle-outline"></ion-icon>
+              </div>
+
+              <h3 class="instruction-title">Ecosystem</h3>
+
+              <p class="instruction-text">
+                Use COLA tokens for exclusive features and transaction discounts. Participate in community governance by
+                voting on key decisions to shape Coin Cola's future.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo.svg" width="68" height="48" alt="NFTC Logo" />
+          </a>
+
+          <p class="footer-text">
+            We aim to make the world of cyptocurency better through Coin Cola token to improve the community
+          </p>
+
+          <ul class="social-list">
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-discord"></ion-icon>
+                <ion-icon name="logo-discord"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Useful Links</p>
+          </li>
+
+          <li>
+            <a href="https://tim-adurahs-organization.gitbook.io/colacoin/overview/how-it-work" class="footer-link">How
+              It Works</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Buy</a>
+          </li>
+
+          <li>
+            <a href="https://tim-adurahs-organization.gitbook.io/colacoin/" class="footer-link">Explore</a>
+          </li>
+
+          <li>
+            <a href="https://tim-adurahs-organization.gitbook.io/colacoin/privacy-policy" class="footer-link">Privacy &
+              Terms</a>
+          </li>
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <a href="https://tim-adurahs-organization.gitbook.io/colacoin/specials/faqs" class="footer-link">Help
+              Center</a>
+          </li>
+
+          <li>
+            <a href="#Partners" class="footer-link">Partners</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Suggestions</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Blog</a>
+          </li>
+
+          <li>
+            <a href="#Sale-Time-out" class="footer-link">Newsletter</a>
+          </li>
+        </ul>
+
+        <div class="footer-list">
+          <p class="footer-list-title">Subscribe Us</p>
+
+          <form action="" class="newsletter-form">
+            <input type="email" name="email" placeholder="info@yourmail.com" required class="newsletter-input" />
+
+            <button type="submit" class="newsletter-btn" aria-label="Submit">
+              <ion-icon name="paper-plane-outline"></ion-icon>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">
+          &copy; 2024 <a href="#" class="copyright-link">Tim.Adurah</a>. All
+          Rights Reserved
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-to-top" aria-label="Back to Top" data-back-top-btn>
+    <ion-icon name="arrow-up-outline"></ion-icon>
+  </a>
+  <div class="scale2">
+    <div class="subscription-panel" style="display: flex; align-items: center; justify-content: center;"
+      data-subscription-panel>
+
+      <div class="footer-list" style="margin: auto;">
+        <p style="padding-bottom: 20px;">We give Giveaway, Subscribe not to miss out any of it, <br>
+          Get more update and more news about what is going on with Coin Cola</p>
+        <p class="footer-list-title">Subscribe Us</p>
+
+        <form action="" class="newsletter-form">
+          <input type="email" name="email" placeholder="info@yourmail.com" required class="newsletter-input" />
+
+          <button type="submit" class="newsletter-btn" aria-label="Submit">
+            <ion-icon name="paper-plane-outline"></ion-icon>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
