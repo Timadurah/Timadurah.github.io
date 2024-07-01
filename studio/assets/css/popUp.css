@@ -1,0 +1,51 @@
+/* styles.css */
+
+.clickable-area {
+    width: 80%;
+    height: 80%;
+    border: 2px solid #ccc;
+    position: relative;
+}
+
+.popup {
+    position: absolute;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    animation: flowUp 2s forwards;
+    pointer-events: none; /* Ensure clicks pass through popups */
+}
+
+@keyframes flowUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-200px); /* Significantly increased upward movement */
+    }
+}
+
+.reaction {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color:var(--mid);
+    border-radius: 50%;
+    animation: pulse 1s ease-out;
+    pointer-events: none; /* Ensure clicks pass through reactions */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
