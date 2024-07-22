@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BarCode for</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+      integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="./svg.svg" type="image/x-icon" />
+    <style>
+      body {
+        overflow: hidden;
+      }
+      .bg-svg {
+        position: relative;
+      }
+      .bg-svg::before {
+        content: url("./svg.svg");
+        position: absolute;
+        top: -250px;
+        left: -200px;
+        opacity: 0.7;
+        width: 40%;
+      }
+      .bg-svg::after {
+        content: url("./svg2.svg");
+        position: absolute;
+        bottom: -200px;
+        right: -200px;
+        filter: blur(50%);
+        width: 40%;
+        opacity: 0.9;
+      }
+      @media only screen and (max-width: 600px) {
+        .bg-svg::before {
+          content: url("./svg.svg");
+          position: absolute;
+          top: -120px;
+          left: -150px;
+          opacity: 0.7;
+          width: 70%;
+        }
+        .bg-svg::after {
+          content: url("./svg2.svg");
+          position: absolute;
+          bottom: -120px;
+          right: -110px;
+          transform: rotate(60deg);
+          width: 70%;
+          opacity: 0.9;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="d-flex align-items-center justify-content-center bg-svg"
+    style="width: 100vw; height: 100vh"
+  >
+    <div
+      class="card bg-light shadow"
+      style="max-width: 18rem; border: none !important"
+    >
+      <div
+        class="card-header bg-transparent border-muted"
+        style="color: rgba(248, 117, 55, 1);"
+      >
+        GoodMaMa & Co.
+      </div>
+      <div class="card-body text-success">
+        <h5 class="card-title" style="color: rgb(247, 87, 12)">
+          Parboiled Rice
+        </h5>
+        <p class="card-text" style="color: rgba(248, 117, 55, 1)">
+          Eat Quality, eat Mama Gold Premium Parboiled rice.
+        </p>
+      </div>
+      <div class="card-footer bg-transparent border-muted" style="color: rgba(248, 117, 55, 1);">
+        30,000 Naira per Bag
+      </div>
+      <div class="card-footer bg-transparent border-muted" style="color: rgb(199, 127, 94);">
+        Id: #52872988735
+      </div>
+    </div>
+  </body>
+</html>
