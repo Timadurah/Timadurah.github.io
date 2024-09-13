@@ -1,0 +1,144 @@
+<?php
+session_start();
+if (empty($_SESSION['KoKOMelon'])) {
+  header("Location: ./sign.php");
+  exit;
+} else {
+  require './materia.php';
+  require './h2.php';
+  require __DIR__ . '/../config/conf.php';
+
+  $stmt = $conn->prepare("SELECT * FROM MyGuests WHERE id = ?");
+  $stmt->execute([$_SESSION['KoKOMelon']]);
+  $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  if ($user) {
+    $firstname = htmlspecialchars($user['firstname']);
+    $lastname = htmlspecialchars($user['lastname']);
+    $email = htmlspecialchars($user['email']);
+    $phone = htmlspecialchars($user['phone']);
+    $profile = htmlspecialchars($user['profile']);
+    $date = htmlspecialchars($user['date']);
+    $usernamee = htmlspecialchars($user['username']);
+  }
+?>
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit</title>
+    <!-- Add your CSS links here -->
+    <!-- Include the Flutterwave Checkout script -->
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
+  </head>
+
+  <body>
+    <br><br><br><br>
+    <?php require './upside.php'; ?>
+    <div class="container mb-5 pb-3">
+      <div class="bg-light shadow-lg rounded-3 overflow-hidden">
+        <div class="row">
+          <!-- Sidebar -->
+          <?php require './aside.php'; ?>
+          <!-- Content -->
+          <section class="col-lg-9 pt-lg-4 pb-4 mb-3">
+            <div class="pt-2 px-4 ps-lg-0 pe-xl-5">
+              <h1 class="h3 mb-4 pt-2 text-center text-sm-start">Deposit</h1>
+              <div class="accordion mb-2" id="payment-method">
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <p class="accordion-button"><i class="ci-card fs-lg me-2 mt-n1 align-middle"></i>Pay By Transfer</p>
+                  </h3>
+                  <div class="accordion-collapse collapse show" id="card">
+                    <div class="accordion-body">
+                      <p class="fs-sm">We accept transfer to secure your bank details:</p>
+                      <div class="credit-card-form row">
+                        <div class="mb-3 col-sm-6">
+                          <input class="form-control" type="text" value="<?= $firstname ?>" name="TransferName" disabled>
+                        </div>
+                        <div class="mb-3 col-sm-6">
+                          <input class="form-control" type="text" name="name" value="<?= $lastname ?>" placeholder="Full Name" disabled>
+                        </div>
+                        <div class="mb-3 col-sm-3">
+                          <input class="form-control" type="text" name="phone" value="234-<?= substr($phone, -10); ?>" disabled>
+                        </div>
+                        <div class="mb-3 col-sm-3">
+                          <input class="form-control" id="amountii" type="number" name="FundAmount" placeholder="Amount" required>
+                        </div>
+                        <div class="col-sm-6">
+                          <button class="btn btn-outline-primary d-block w-100 mt-0" type="button" id="start-payment-button">Deposit</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vendor scripts: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="vendor/card/dist/card.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+
+    <!-- Custom script -->
+    <script>
+      function makePayment() {
+        let amountDeposit = document.getElementById("amountii").value;
+
+        // Validate the amount
+        if (!amountDeposit || isNaN(amountDeposit) || amountDeposit <= 0) {
+          alert("Please enter a valid amount.");
+          return;
+        }
+
+        FlutterwaveCheckout({
+          public_key: "FLWPUBK_TEST-02b9b5fc6406bd4a41c3ff141cc45e93-X",
+          tx_ref: "txref-DI0NzMx13",
+          amount: amountDeposit,
+          currency: "NGN",
+          payment_options: "card, banktransfer, ussd",
+          meta: {
+            source: "docs-inline-test",
+            consumer_mac: "92a3-912ba-1192a",
+          },
+          customer: {
+            email: "test@mailinator.com",
+            phone_number: "08100000000",
+            name: "Ayomide Jimi-Oni",
+          },
+          customizations: {
+            title: "Flutterwave Developers",
+            description: "Test Payment",
+            logo: "https://checkout.flutterwave.com/assets/img/rave-logo.png",
+          },
+          callback: function(data) {
+            console.log("payment callback:", data);
+            // Optionally, you can redirect or update the UI here
+          },
+          onclose: function() {
+            console.log("Payment cancelled!");
+            // Optionally, you can notify the user or perform some action here
+          }
+        });
+      }
+
+      // Ensure the function runs only after the page is fully loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('start-payment-button').addEventListener('click', makePayment);
+      });
+    </script>
+  <?php  }
+require './footer.php'; ?>
+  </body>
+
+  </html>
