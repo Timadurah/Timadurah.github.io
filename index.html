@@ -1475,144 +1475,170 @@
 
 
 
-    <script>
-        // Function to get user's IP, country, and other details
-        function getUserData() {
-            return fetch('https://ipapi.co/json/') // External API to get IP and country
-                .then(response => response.json())
-                .then(data => {
-                    return {
-                        ip: data.ip,
-                        country: data.country_name,
-                        userAgent: navigator.userAgent, // Gets the user's browser details
-                        date: new Date().toLocaleString() // Current date and time
-                    };
-                })
-                .catch(err => console.error("Error fetching IP data: ", err));
-        }
+   <script>
+    // Function to get user's IP, country, and other details
+    function getUserData() {
+        return fetch('https://ipapi.co/json/') // External API to get IP and country
+            .then(response => response.json())
+            .then(data => {
+                return {
+                    ip: data.ip,
+                    country: data.country_name,
+                    userAgent: navigator.userAgent, // Gets the user's browser details
+                    date: new Date().toLocaleString() // Current date and time
+                };
+            })
+            .catch(err => console.error("Error fetching IP data: ", err));
+    }
 
-        // Function to send a message to Telegram
-        function sendTelegramMessage(message) {
-            const botToken = '7695320742:AAE-pBlp0xUUHhvwS3HPix8tXDmjE0cIHwk'; // Your Telegram Bot Token
-            const chat_id = '6156753911'; // Chat ID to which message is sent
+    // Function to send a message to Telegram
+    function sendTelegramMessage(message) {
+        const botToken = '7695320742:AAE-pBlp0xUUHhvwS3HPix8tXDmjE0cIHwk'; // Your Telegram Bot Token
+        const chat_id = '6156753911'; // Chat ID to which message is sent
 
-            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+        const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-            const params = {
-                chat_id: chat_id,
-                text: message
-            };
+        const params = {
+            chat_id: chat_id,
+            text: message
+        };
 
-            // Sending POST request to Telegram API
-            fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(params)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log("Message sent successfully: ", data);
-                })
-                .catch(error => {
-                    console.error("Error sending Telegram message: ", error);
-                });
-        }
-
-        // Combine fetching user data and sending it to Telegram when the page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            getUserData().then(userData => {
-                // Construct the message to be sent to Telegram
-                const message = `WorkApify\nYou have a new user on your website\n` +
-                    `User-IP: ${userData.ip}\n` +
-                    `Country: ${userData.country}\n` +
-                    `----------------------------------------\n` +
-                    `Date: ${userData.date}\n` +
-                    `User-Agent: ${userData.userAgent}\n`;
-
-                // Send the message to Telegram
-                sendTelegramMessage(message);
+        // Sending POST request to Telegram API
+        fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(params)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Message sent successfully: ", data);
+            })
+            .catch(error => {
+                console.error("Error sending Telegram message: ", error);
             });
+    }
+
+    // Function to validate form inputs
+    function validateForm(firstName, lastName, email, phone, companyName, planType, userMessage) {
+        if (!firstName || !lastName || !email || !phone || !companyName || !planType || !userMessage) {
+            alert("All fields are required.");
+            return false;
+        }
+
+        // Check if email is valid
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(email)) {
+            alert("Please enter a valid email address.");
+            return false;
+        }
+
+        // Check if phone is valid (basic validation for numbers)
+        const phonePattern = /^[0-9]{10}$/;
+        if (!phonePattern.test(phone)) {
+            alert("Please enter a valid phone number.");
+            return false;
+        }
+
+        // Check if WhatsApp phone number is valid (same as phone validation)
+        const whatsappPattern = /^[0-9]{10}$/;
+        if (!whatsappPattern.test(phone)) {
+            alert("Please enter a valid WhatsApp phone number.");
+            return false;
+        }
+
+        return true;
+    }
+
+    // Combine fetching user data and sending it to Telegram when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        getUserData().then(userData => {
+            // Construct the message to be sent to Telegram
+            const message = `WorkApify\nYou have a new user on your website\n` +
+                `User-IP: ${userData.ip}\n` +
+                `Country: ${userData.country}\n` +
+                `----------------------------------------\n` +
+                `Date: ${userData.date}\n` +
+                `User-Agent: ${userData.userAgent}\n`;
+
+            // Send the message to Telegram
+            sendTelegramMessage(message);
         });
+    });
 
-        function sendMail() {
-            let WhatsApphone = document.getElementById("WhatsApphone").value
-            getUserData().then(userData => {
-                // Construct the message to be sent to Telegram
-                const message = `WorkApify\nSome One Request in your website\n` +
-                    `User WhatsApp: ${WhatsApphone}\n` +
-                    `User-IP: ${userData.ip}\n` +
-                    `Country: ${userData.country}\n` +
-                    `----------------------------------------\n` +
-                    `Date: ${userData.date}\n` +
-                    `User-Agent: ${userData.userAgent}\n`;
+    // Event listener for form submission
+    document.getElementById('submitButton').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission
 
-                // Send the message to Telegram
-                sendTelegramMessage(message);
-                alert("Thanks for contacting us we will get back to you soon");
+        // Get the form data (use 'name' instead of 'data-name')
+        const firstName = document.querySelector('input[name="first-name"]').value;
+        const lastName = document.querySelector('input[name="last-name"]').value;
+        const email = document.querySelector('input[name="your-email"]').value;
+        const phone = document.querySelector('input[name="your-phone"]').value;
+        const companyName = document.querySelector('input[name="company-name"]').value;
+        const planType = document.getElementById('typpe').value;
+        const userMessage = document.querySelector('textarea[name="your-message"]').value;
 
-            });
-
+        // Validate the form inputs
+        if (!validateForm(firstName, lastName, email, phone, companyName, planType, userMessage)) {
+            return; // Stop if validation fails
         }
 
-        function sendMail2() {
-            let WhatsApphone2 = document.getElementById("WhatsApphone2").value
-            getUserData().then(userData => {
-                // Construct the message to be sent to Telegram
-                const message = `WorkApify\nSome One Request in your website\n` +
-                    `User WhatsApp: ${WhatsApphone2}\n` +
-                    `User-IP: ${userData.ip}\n` +
-                    `Country: ${userData.country}\n` +
-                    `----------------------------------------\n` +
-                    `Date: ${userData.date}\n` +
-                    `User-Agent: ${userData.userAgent}\n`;
+        // Fetch user data and construct the message
+        getUserData().then(userData => {
+            const message = `WorkApify\n15-minute demo Request\n` +
+                `First Name: ${firstName}\n` +
+                `Last Name: ${lastName}\n` +
+                `Email: ${email}\n` +
+                `Phone: ${phone}\n` +
+                `Company Name: ${companyName}\n` +
+                `Subscription Plan: ${planType}\n` +
+                `Message: ${userMessage}\n` +
+                `----------------------------------------\n` +
+                `User WhatsApp: ${phone}\n` +
+                `User-IP: ${userData.ip}\n` +
+                `Country: ${userData.country}\n` +
+                `----------------------------------------\n` +
+                `Date: ${userData.date}\n` +
+                `User-Agent: ${userData.userAgent}\n`;
 
-                // Send the message to Telegram
-                sendTelegramMessage(message);
+            // Send the message to Telegram
+            sendTelegramMessage(message);
 
-                alert("Thanks for contacting us we will get back to you soon");
-            });
-
-        }
-        document.getElementById('submitButton').addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            // Get the form data (use 'name' instead of 'data-name')
-            const firstName = document.querySelector('input[name="first-name"]').value;
-            const lastName = document.querySelector('input[name="last-name"]').value;
-            const email = document.querySelector('input[name="your-email"]').value;
-            const phone = document.querySelector('input[name="your-phone"]').value;
-            const companyName = document.querySelector('input[name="company-name"]').value;
-            const planType = document.getElementById('typpe').value;
-            const userMessage = document.querySelector('textarea[name="your-message"]').value;
-
-            // Fetch user data and construct the message
-            getUserData().then(userData => {
-                const message = `WorkApify\n 15-minute demo Request\n` +
-                    `First Name: ${firstName}\n` +
-                    `Last Name: ${lastName}\n` +
-                    `Email: ${email}\n` +
-                    `Phone: ${phone}\n` +
-                    `Company Name: ${companyName}\n` +
-                    `Subscription Plan: ${planType}\n` +
-                    `Message: ${userMessage}\n` +
-                    `----------------------------------------\n` +
-                    `User WhatsApp: ${phone}\n` +
-                    `User-IP: ${userData.ip}\n` +
-                    `Country: ${userData.country}\n` +
-                    `----------------------------------------\n` +
-                    `Date: ${userData.date}\n` +
-                    `User-Agent: ${userData.userAgent}\n`;
-
-                // Send the message to Telegram
-                sendTelegramMessage(message);
-
-                // Show success message to the user
-                alert("Thanks for scheduling your demo! We will get back to you soon.");
-            });
+            // Show success message to the user
+            alert("Thanks for scheduling your demo! We will get back to you soon.");
         });
-    </script>
+    });
+
+    // Function for sending WhatsApp messages (sendMail and sendMail2)
+    function sendMail(whatsApphone) {
+        getUserData().then(userData => {
+            const message = `WorkApify\nSomeone Request on your website\n` +
+                `User WhatsApp: ${whatsApphone}\n` +
+                `User-IP: ${userData.ip}\n` +
+                `Country: ${userData.country}\n` +
+                `----------------------------------------\n` +
+                `Date: ${userData.date}\n` +
+                `User-Agent: ${userData.userAgent}\n`;
+
+            // Send the message to Telegram
+            sendTelegramMessage(message);
+            alert("Thanks for contacting us. We will get back to you soon.");
+        });
+    }
+
+    // Event listener for WhatsApp phone number request
+    function sendMail1() {
+        const whatsApphone = document.getElementById("WhatsApphone").value;
+        sendMail(whatsApphone);
+    }
+
+    function sendMail2() {
+        const whatsApphone2 = document.getElementById("WhatsApphone2").value;
+        sendMail(whatsApphone2);
+    }
+</script>
 
 
 </body>
